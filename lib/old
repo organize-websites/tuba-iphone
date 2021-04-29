@@ -1,0 +1,80 @@
+BottomNavigationBar(
+        backgroundColor: Colors.white,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            label:  '',
+            icon: IconButton(
+                      icon: Icon(Icons.home, color: Color.fromRGBO(0, 103, 174, 1.0), size: 50),
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                      },
+                    ),
+          ),
+          BottomNavigationBarItem(
+            label:  '',
+            icon: IconButton(
+              onPressed: () {
+              isPlaying ? _radioPlayer.pause() : _radioPlayer.play();
+              },
+              icon: Icon(
+                isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded, color: Colors.white, size: 50,
+              ),
+            ),
+          ),
+          BottomNavigationBarItem(
+            label:  '',
+            icon: IconButton(
+                      icon: Icon(Icons.exit_to_app, color: Color.fromRGBO(0, 103, 174, 1.0), size: 50),
+                      onPressed: (){exit(0);},
+                    ),
+          )
+        ],
+      ),
+
+
+      __________________________________________
+
+
+
+
+      Padding(
+          padding: const EdgeInsets.only(bottom: 25),
+          child: ConvexAppBar(
+            backgroundColor: Colors.white,
+            activeColor: Color.fromRGBO(0, 103, 174, 1.0),
+            height: 70,
+            elevation: 50,
+            style: TabStyle.fixedCircle,
+            items: [
+              TabItem(icon: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: IconButton(iconSize: 40, icon: Icon(Icons.home), color: Color.fromRGBO(0, 103, 174, 1.0), onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));},),
+              )),
+              TabItem(activeIcon: true, isIconBlend: true, icon: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: IconButton(iconSize: 45, icon: Icon(isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded), color: Color.fromRGBO(0, 103, 174, 1.0), onPressed: () {isPlaying ? _radioPlayer.pause() : _radioPlayer.play();},),
+              )),
+              TabItem(icon: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: IconButton(iconSize: 40, icon: Icon(Icons.exit_to_app), color: Color.fromRGBO(0, 103, 174, 1.0), onPressed: (){exit(0);},),
+              )),
+            ]
+          ),
+        )
+
+
+        __________________________________________
+
+
+
+        ConvexAppBar(
+          backgroundColor: Color.fromRGBO(0, 103, 174, 1.0),
+          activeColor: Color.fromRGBO(0, 103, 174, 1.0),
+          height: 100,
+          style: TabStyle.fixedCircle,
+          items: [
+            TabItem(icon: IconButton(iconSize: 40, icon: Icon(Icons.home), color: Color.fromRGBO(0, 103, 174, 1.0), onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));},)),
+            TabItem(icon: IconButton(iconSize: 45, icon: Icon(isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded, color: Color.fromRGBO(0, 103, 174, 1.0),), color: Color.fromRGBO(0, 103, 174, 1.0), onPressed: () {isPlaying ? _radioPlayer.pause() : _radioPlayer.play();},)),
+            TabItem(icon: IconButton(iconSize: 40, icon: Icon(Icons.exit_to_app), color: Color.fromRGBO(0, 103, 174, 1.0), onPressed: (){exit(0);},)),
+          ]
+        )
